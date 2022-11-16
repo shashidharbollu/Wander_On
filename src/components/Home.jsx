@@ -3,7 +3,17 @@ import styled from "styled-components";
 import HeroImage from "../assets/hero.png";
 import Button from "./Button";
 export default function Home() {
-  const [value, setValue] = useState("$500 - $10,000");
+  // const [value, setValue] = useState("$500 - $10,000");
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
   return (
     <Section>
       <div className="background">
@@ -31,15 +41,53 @@ export default function Home() {
               <input type="date" />
             </div>
             <div className="row">
-              <label>Price Range</label>
-              <input
+              <label>Check Out</label>
+              <input type="date" />
+            </div>
+            <div className="row">
+              <label>Paymet Mode</label>
+              <select>
+                <option>Card</option>
+                <option>Online Payment</option>
+                <option>Net Banking</option>
+              </select>
+              {/* <input
                 type="text"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-              />
+              /> */}
             </div>
             <div className="row">
-              <Button text="Discover More" />
+              {modal && (
+                <div className="modal">
+                  <div onClick={toggleModal} className="overlay"></div>
+                  <div className="modal-content">
+                    <h2>CONGRATULATIONS!YOUR BOOKING IS CONFIRMED.</h2>
+                    <p>
+                      Our Customer-Care Executive will get in touch with You.If
+                      you have any questions please feel free to send a messege
+                      in the query box, which is present at the bottom of this
+                      page.Thank You! Stay safe.
+                    </p>
+                    <button className="close-modal" onClick={toggleModal}>
+                      CLOSE
+                    </button>
+                  </div>
+                </div>
+              )}
+              <button
+                style={{
+                  background: "var(--primary-color)",
+                  width: "150px",
+                  height: "40px",
+                }}
+                onClick={toggleModal}
+                className="row"
+                // color: var(--primary-color);
+              >
+                Click here to BOOK your trip.
+              </button>
+              {/* <Button onClick={toggleModal} className="btn-modal" text="Send" /> */}
             </div>
           </form>
         </div>
@@ -47,12 +95,19 @@ export default function Home() {
     </Section>
   );
 }
+// img.sticky {
+//   position: -webkit-sticky; /* Safari */
+//   position: sticky;
+//   top: 0;
+// }
 
 const Section = styled.section`
   margin-top: 2rem;
-  position: relative;
+  position: sticky;
   .background {
     img {
+      sticky: -webkit-sticky;
+      position: sticky;
       height: 90vh;
       width: 100%;
     }
@@ -113,6 +168,50 @@ const Section = styled.section`
             font-size: 1.1rem;
             border-bottom: 1px solid #f5ebe9;
             padding-bottom: 0.3rem;
+          }
+          active-modal {
+            overflow-y: hidden;
+          }
+
+          .btn-modal {
+            padding: 10px 20px;
+            display: block;
+            margin: 100px auto 0;
+            font-size: 18px;
+          }
+
+          .modal,
+          .overlay {
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: fixed;
+          }
+
+          .overlay {
+            background: rgba(49, 49, 49, 0.8);
+          }
+          .modal-content {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1.4;
+            background: #f1f1f1;
+            padding: 14px 28px;
+            border-radius: 3px;
+            max-width: 600px;
+            min-width: 300px;
+          }
+
+          .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 7px;
           }
         }
       }

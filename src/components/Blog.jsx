@@ -4,6 +4,16 @@ import styled from "styled-components";
 
 export default function Blog() {
   const [users, setUsers] = useState([]);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
 
   const getUsers = async () => {
     const response = await fetch("https://api.npoint.io/f89acb9ee900ca95b8dc");
@@ -48,8 +58,23 @@ export default function Blog() {
                 {tags.map((eleM) => {
                   <div>{eleM.name}</div>;
                 })}
+                {modal && (
+                  <div className="modal">
+                    <div onClick={toggleModal} className="overlay"></div>
+                    <div className="modal-content">
+                      <h1>Hello User,</h1>
+                      <p>
+                        You Really Have A Great Taste! This master-piece has
+                        been added to your favourites. Have Fun.
+                      </p>
+                      <button className="close-modal" onClick={toggleModal}>
+                        CLOSE
+                      </button>
+                    </div>
+                  </div>
+                )}
 
-                <button onClick={() => handleShow(id)}>AddToFav</button>
+                <button onClick={toggleModal}>AddToFav</button>
               </div>
             );
           })}
@@ -59,10 +84,45 @@ export default function Blog() {
 }
 
 const Section = styled.section`
+  .modal,
+  .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+  }
+  .overlay {
+    background: whitesmoke;
+  }
+  .modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+  }
   background-color: whitesmoke;
   padding: 10;
   margin: 10;
   gap: 5rem;
+  active-modal {
+    overflow-y: hidden;
+  }
   .title {
     text-align: center;
   }
@@ -114,9 +174,9 @@ const Section = styled.section`
       gap: 0.5rem;
       background-color: #8338ec14;
       border-radius: 1rem;
-      transition: 0.3s ease-in-out;
+      transition: var(--default-transition);
       &:hover {
-        transform: translateX(0.4rem) translateY(-1rem);
+        background-color: white;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
       img {

@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import logo from "../assets/download.png";
-import Button from "./Button";
 
 export default function Footer() {
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
   const quickLinks = [
     "About Us",
     "Destinations",
@@ -68,7 +77,34 @@ export default function Footer() {
           <div className="newsletter">
             <input type="text" placeholder="Your Email" />
             <input type="text" placeholder="Your Query" />
-            <Button text="Send" />
+            {/* <Button text="Send" /> */}
+            {modal && (
+              <div className="modal">
+                <div onClick={toggleModal} className="overlay"></div>
+                <div className="modal-content">
+                  <h2>Hello User!</h2>
+                  <p>
+                    We have received your request.We will get back to you as
+                    soon as possible.
+                  </p>
+                  <button className="close-modal" onClick={toggleModal}>
+                    CLOSE
+                  </button>
+                </div>
+              </div>
+            )}
+            <button
+              style={{
+                background: "var(--primary-color)",
+                width: "400px",
+                height: "40px",
+              }}
+              onClick={toggleModal}
+              className="btn-modal"
+              // color: var(--primary-color);
+            >
+              Send
+            </button>
           </div>
         </div>
       </div>
@@ -124,6 +160,50 @@ const Container = styled.footer`
           color: var(--primary-color);
           cursor: pointer;
         }
+        active-modal {
+          overflow-y: hidden;
+        }
+        btn-modal {
+          color: orange;
+          padding: 10px 20px;
+          display: block;
+          margin: 100px auto 0;
+          font-size: 18px;
+        }
+        .modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
+
       
     }
   }
