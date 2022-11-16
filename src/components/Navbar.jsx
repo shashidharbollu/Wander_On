@@ -30,6 +30,9 @@ export default function Navbar() {
         <h1>
           <ul>
             <li>
+              <a href="#backpacking">----</a>
+            </li>
+            <li>
               <a href="#services">Home</a>
             </li>
             <li>
@@ -39,7 +42,7 @@ export default function Navbar() {
               <a href="#blog">Blog</a>
             </li>
             <li>
-              <a href="#backpacking">Backpacking</a>
+              <a href="#backpacking">----</a>
             </li>
           </ul>
         </h1>
@@ -86,7 +89,7 @@ const Container = styled.nav`
 
           color: light-blue;
           cursor: pointer;
-          transition: var(--default-transition);
+
           &:hover {
             color: var(--primary-color);
           }
