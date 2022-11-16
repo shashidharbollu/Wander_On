@@ -85,7 +85,7 @@ export default function Footer() {
                   <h2>Hello User!</h2>
                   <p>
                     We have received your request.We will get back to you as
-                    soon as possible.
+                    early as possible.
                   </p>
                   <button className="close-modal" onClick={toggleModal}>
                     CLOSE
