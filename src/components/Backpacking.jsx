@@ -68,7 +68,6 @@ const Section = styled.section`
     background-color: #8338ec;
   }
   .tour2 {
-    /* color:darkgreen; */
     color: blue;
   }
   .packages {
@@ -120,7 +119,7 @@ const Section = styled.section`
             border-radius: 1rem;
             background-color: #4d2ddb84;
             width: 2rem;
-            /* padding: 1rem; */
+
             padding: 0.3rem 0.4rem;
           }
         }

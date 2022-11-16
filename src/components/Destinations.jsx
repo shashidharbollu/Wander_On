@@ -49,11 +49,7 @@ const Section = styled.section`
         bottom: 0rem;
         height: 100%;
         width: 100%;
-        background: linear-gradient(
-          to bottom,
-          #ffffff14,
-          #000000ae
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to bottom, #ffffff14, #000000ae);
         display: flex;
         flex-direction: column-reverse;
         h3 {
