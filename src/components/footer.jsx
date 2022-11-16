@@ -73,9 +73,12 @@ export default function Footer() {
         </div>
       </div>
       <div className="lower-footer">
-        <span>
-          Copyright &copy; Travel. Designed by <a href="#">Shashidhar Bollu</a>
-        </span>
+        <center>
+          <span>
+            Copyright &copy; Travel. Designed by{" "}
+            <a href="#">Shashidhar Bollu</a>
+          </span>
+        </center>
       </div>
     </Container>
   );

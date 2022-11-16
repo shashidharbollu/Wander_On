@@ -13,11 +13,11 @@ export default function Home() {
         <div className="info">
           <h1>It's Time To</h1>
           <h1>Explore The World</h1>
-          <input
+          {/* <input
             type="text"
             placeholder="Search..."
             onChange={(e) => e.target.value}
-          />
+          /> */}
 
           <Button text="Plan Your Trip" />
         </div>

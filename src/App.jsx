@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-// import Services from "./components/services";
+
 import Destinations from "./components/Destinations";
+
 import Blog from "./components/Blog";
 import Testimonial from "./components/testimonials";
 import DownloadApp from "./components/Download";
@@ -13,6 +14,7 @@ import Offers from "./components/Offers";
 import Offers2 from "./components/offers2";
 import Backpacking from "./components/Backpacking";
 import Sercvice2 from "./components/Service2";
+import Search from "./components/search";
 
 export default function App() {
   return (
@@ -20,6 +22,7 @@ export default function App() {
       <Navbar />
       <Home />
       <Sercvice2 />
+      <Search />
       <Destinations />
       <Blog />
       <Offers />
