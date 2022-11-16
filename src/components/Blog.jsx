@@ -1,7 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 export default function Blog() {
@@ -51,7 +49,7 @@ export default function Blog() {
                   <div>{eleM.name}</div>;
                 })}
 
-                <button onClick={() => handleShow(id)}>More Details</button>
+                <button onClick={() => handleShow(id)}>AddToFav</button>
               </div>
             );
           })}

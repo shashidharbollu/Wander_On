@@ -1,9 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-
 import Destinations from "./components/Destinations";
-
 import Blog from "./components/Blog";
 import Testimonial from "./components/testimonials";
 import DownloadApp from "./components/Download";
