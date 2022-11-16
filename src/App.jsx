@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Services from "./components/Services";
+// import Services from "./components/services";
 import Destinations from "./components/Destinations";
 import Blog from "./components/Blog";
 import Testimonial from "./components/testimonials";
@@ -12,13 +12,14 @@ import Tour from "./components/Tour";
 import Offers from "./components/Offers";
 import Offers2 from "./components/offers2";
 import Backpacking from "./components/Backpacking";
+import Sercvice2 from "./components/Service2";
 
 export default function App() {
   return (
     <div>
       <Navbar />
       <Home />
-      <Services />
+      <Sercvice2 />
       <Destinations />
       <Blog />
       <Offers />
