@@ -167,7 +167,7 @@ const Section = styled.section`
   }
   .destinations {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     padding: 0 3rem;
     .destination {
