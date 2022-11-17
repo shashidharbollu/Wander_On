@@ -3,6 +3,13 @@ import styled from "styled-components";
 import testimonial1 from "../assets/testimonial1.png";
 import testimonial2 from "../assets/testimonial2.png";
 import avatar from "../assets/avatar.png";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaPinterest,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
 
 export default function Testimonial() {
   return (
@@ -33,6 +40,15 @@ export default function Testimonial() {
         <div className="testimonial-image-two">
           <img src={testimonial2} alt="testimonials" />
         </div>
+      </div>
+
+      <div className="social">
+        <h1>Find Us On</h1>
+        <FaFacebook className="icon" style={{ color: "red" }} />
+        <FaInstagram className="icon" style={{ color: "red" }} />
+        <FaTwitter className="icon" style={{ color: "red" }} />
+        <FaPinterest className="icon" style={{ color: "red" }} />
+        <FaYoutube className="icon" style={{ color: "red" }} />
       </div>
     </Section>
   );
@@ -102,5 +118,22 @@ const Section = styled.section`
         block-size: auto;
       }
     }
+  }
+  .social1{
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 3rem;
+    cursor: pointer;
+  }
+  .social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 1800px;
+    height: 3rem;
+    cursor: pointer;
+    fa-lg (33% increase)
   }
 `;

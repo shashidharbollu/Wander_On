@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import logo from "../assets/download.png";
+// import {
+//   FaFacebook,
+//   FaInstagram,
+//   FaPinterest,
+//   FaTwitter,
+//   FaYoutube,
+// } from "react-icons/fa";
 
 export default function Footer() {
   const [modal, setModal] = useState(false);
@@ -55,6 +62,13 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+        {/* <div className="social">
+          <FaFacebook className="icon" />
+          <FaInstagram className="icon" />
+          <FaTwitter className="icon" />
+          <FaPinterest className="icon" />
+          <FaYoutube className="icon" />
+        </div> */}
         <div className="col">
           <h2>Quick Links</h2>
           <ul>
@@ -226,6 +240,7 @@ const Container = styled.footer`
   .lower-footer {
     padding: 2rem 0;
     text-align: center;
+    
     a {
       text-decoration: none;
       color: var(--primary-color);

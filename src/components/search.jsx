@@ -25,7 +25,7 @@ export default function search() {
 
   return (
     <Wrapper id="Unique">
-      <div className="title">
+      <div className="title" style={{ color: "var(--primary-color)" }}>
         <h1>Search Your Interest</h1>
         <input
           type="text"
