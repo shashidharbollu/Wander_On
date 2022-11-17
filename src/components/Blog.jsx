@@ -22,7 +22,7 @@ export default function Blog() {
   useEffect(() => {
     getUsers();
   });
-  const handleShow = (id) => {
+  (id) => {
     const newarr = users.filter((eleM) => {
       return eleM.id === id;
     });

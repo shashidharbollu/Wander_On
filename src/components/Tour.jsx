@@ -2,55 +2,130 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 export default function Tour() {
-  const [Data, setData] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
 
-  const getData = async () => {
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
+
+  const getUsers = async () => {
     const response = await fetch("https://api.npoint.io/f89acb9ee900ca95b8dc");
-    setData(await response.json());
+    setUsers(await response.json());
   };
   useEffect(() => {
-    getData();
+    getUsers();
   });
+  const handleShow = (id) => {
+    const newarr = users.filter((eleM) => {
+      return eleM.id === id;
+    });
+    setUsers(newarr);
+  };
   return (
-    <Section id="explore">
+    <Section id="recommend">
       <div className="title">
-        <h2 className="exploree">---Latest---</h2>
+        <h2 className="recomnd">---Recommended places---</h2>
       </div>
-      <div className="tours">
-        {Data.filter(
-          (element) =>
-            element.featuredImage.id > 12000 && element.featuredImage.id < 15000
-        ).map((elem) => {
-          const { title, id, date, featuredImage, meta, tags } = elem;
-          return (
-            <div key={id} className="tour">
-              <img src={featuredImage.link} alt="" />
-              <img src={title.categories} alt="" />
-              <div className="tour2">
-                {" "}
-                {meta.title} <p>{title.categories}</p>
+      <div className="destinations">
+        {users
+          .filter(
+            (element) =>
+              element.featuredImage.id > 12000 &&
+              element.featuredImage.id < 15000
+          )
+          .map((elem) => {
+            const { title, id, date, featuredImage, meta, tags } = elem;
+            return (
+              <div key={id} className="destination">
+                <img src={featuredImage.link} alt="" />
+                <img src={title.categories} alt="" />
+                <div className="destination2">
+                  {" "}
+                  {meta.title} <p>{title.categories}</p>
+                </div>
+                <div>{meta.description}</div>
+                <div>{tags.name}</div>
+                <div className="info"></div>
+                <div className="distance">
+                  <span>{featuredImage.caption}</span>
+                </div>
+                <div className="date">
+                  <b> {date}</b>
+                </div>
+                {tags.map((eleM) => {
+                  <div>{eleM.name}</div>;
+                })}
+                {modal && (
+                  <div className="modal">
+                    <div onClick={toggleModal} className="overlay"></div>
+                    <div className="modal-content">
+                      <h1>Hello User,</h1>
+                      <p>
+                        You Really Have A Great Taste! This master-piece has
+                        been added to your favourites. Have Fun.
+                      </p>
+                      <button className="close-modal" onClick={toggleModal}>
+                        CLOSE
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <button onClick={toggleModal}>AddToFav</button>
               </div>
-              <div>{meta.description}</div>
-              <div>{tags.name}</div>
-              <div className="info"></div>
-              <div className="distance">
-                <span>{featuredImage.caption}</span>
-              </div>
-              <div className="date">
-                <b> {date}</b>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </Section>
   );
 }
 
 const Section = styled.section`
+  .modal,
+  .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+  }
+  .overlay {
+    background: whitesmoke;
+  }
+  .modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+  }
   background-color: whitesmoke;
-  padding: 0;
-  margin: 0;
+  padding: 10;
+  margin: 10;
+  gap: 5rem;
+  active-modal {
+    overflow-y: hidden;
+  }
   .title {
     text-align: center;
   }
@@ -64,12 +139,13 @@ const Section = styled.section`
     background-color: aquamarine;
     border-radius: 80px;
     padding: 10px;
+    margin-right: 220px;
     border-bottom-right-radius: 10px;
   }
   button:hover {
     background-color: #8338ec;
   }
-  .tour2 {
+  .destination2 {
     color: blue;
   }
   .packages {
@@ -89,23 +165,21 @@ const Section = styled.section`
       }
     }
   }
-  .tours {
+  .destinations {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     padding: 0 3rem;
-    margin-top: 10px;
-    .tour {
+    .destination {
       padding: 1rem;
       display: flex;
-      margin-top: 15px;
       flex-direction: column;
       gap: 0.5rem;
       background-color: #8338ec14;
       border-radius: 1rem;
-      transition: 0.3s ease-in-out;
+      transition: var(--default-transition);
       &:hover {
-        transform: translateX(0.4rem) translateY(-1rem);
+        background-color: white;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
       img {
@@ -147,7 +221,7 @@ const Section = styled.section`
         }
       }
     }
-    .tours {
+    .destinations {
       grid-template-columns: 1fr;
       padding: 0;
     }
