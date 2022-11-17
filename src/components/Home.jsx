@@ -3,7 +3,6 @@ import styled from "styled-components";
 import HeroImage from "../assets/hero.png";
 import Button from "./Button";
 export default function Home() {
-  // const [value, setValue] = useState("$500 - $10,000");
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
@@ -51,11 +50,6 @@ export default function Home() {
                 <option>Online Payment</option>
                 <option>Net Banking</option>
               </select>
-              {/* <input
-                type="text"
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-              /> */}
             </div>
             <div className="row">
               {modal && (

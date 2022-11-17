@@ -5,7 +5,7 @@ import logo from "../assets/download.png";
 //   FaFacebook,
 //   FaInstagram,
 //   FaPinterest,
-//   FaTwitter,
+
 //   FaYoutube,
 // } from "react-icons/fa";
 
