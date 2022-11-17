@@ -31,7 +31,7 @@ export default function Blog() {
   return (
     <Section id="recommend">
       <div className="title">
-        <h2 className="recomnd">---Recommended places---</h2>
+        <h2 className="recomnd">---Most Searched Places---</h2>
       </div>
       <div className="destinations">
         {data
