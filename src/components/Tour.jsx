@@ -136,14 +136,14 @@ const Section = styled.section`
     font-size: 10px;
   }
   button {
-    background-color: aquamarine;
+    background-color: lightblue;
     border-radius: 80px;
     padding: 10px;
     margin-right: 220px;
     border-bottom-right-radius: 10px;
   }
   button:hover {
-    background-color: #8338ec;
+    background-color: var(--primary-color);
   }
   .destination2 {
     color: blue;
