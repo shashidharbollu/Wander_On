@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 export default function Blog() {
-  const [users, setUsers] = useState([]);
+  const [data, setdata] = useState([]);
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
@@ -15,18 +15,18 @@ export default function Blog() {
     document.body.classList.remove("active-modal");
   }
 
-  const getUsers = async () => {
+  const getData = async () => {
     const response = await fetch("https://api.npoint.io/f89acb9ee900ca95b8dc");
-    setUsers(await response.json());
+    setdata(await response.json());
   };
   useEffect(() => {
-    getUsers();
+    getData();
   });
   (id) => {
-    const newarr = users.filter((eleM) => {
-      return eleM.id === id;
+    const newarr = data.filter((result) => {
+      return result.id === id;
     });
-    setUsers(newarr);
+    setdata(newarr);
   };
   return (
     <Section id="recommend">
@@ -34,10 +34,10 @@ export default function Blog() {
         <h2 className="recomnd">---Recommended places---</h2>
       </div>
       <div className="destinations">
-        {users
+        {data
           .filter((element) => element.featuredImage.id < 12000)
-          .map((elem) => {
-            const { title, id, date, featuredImage, meta, tags } = elem;
+          .map((result1) => {
+            const { title, id, date, featuredImage, meta, tags } = result1;
             return (
               <div key={id} className="destination">
                 <img src={featuredImage.link} alt="" />
@@ -55,8 +55,8 @@ export default function Blog() {
                 <div className="date">
                   <b> {date}</b>
                 </div>
-                {tags.map((eleM) => {
-                  <div>{eleM.name}</div>;
+                {tags.map((result) => {
+                  <div>{result.name}</div>;
                 })}
                 {modal && (
                   <div className="modal">

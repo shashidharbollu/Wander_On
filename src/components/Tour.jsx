@@ -21,16 +21,16 @@ export default function Tour() {
   useEffect(() => {
     getUsers();
   });
-  const handleShow = (id) => {
-    const newarr = users.filter((eleM) => {
-      return eleM.id === id;
+  (id) => {
+    const newarr = users.filter((result) => {
+      return result.id === id;
     });
     setUsers(newarr);
   };
   return (
-    <Section id="recommend">
-      <div className="title">
-        <h2 className="recomnd">---Recommended places---</h2>
+    <Section id="explore">
+      <div className="heading">
+        <h2 className="heading1">---Recommended places---</h2>
       </div>
       <div className="destinations">
         {users
@@ -39,8 +39,8 @@ export default function Tour() {
               element.featuredImage.id > 12000 &&
               element.featuredImage.id < 15000
           )
-          .map((elem) => {
-            const { title, id, date, featuredImage, meta, tags } = elem;
+          .map((result1) => {
+            const { title, id, date, featuredImage, meta, tags } = result1;
             return (
               <div key={id} className="destination">
                 <img src={featuredImage.link} alt="" />
@@ -58,8 +58,8 @@ export default function Tour() {
                 <div className="date">
                   <b> {date}</b>
                 </div>
-                {tags.map((eleM) => {
-                  <div>{eleM.name}</div>;
+                {tags.map((result) => {
+                  <div>{result.name}</div>;
                 })}
                 {modal && (
                   <div className="modal">
@@ -126,7 +126,7 @@ const Section = styled.section`
   active-modal {
     overflow-y: hidden;
   }
-  .title {
+  .heading {
     text-align: center;
   }
   .date {

@@ -4,6 +4,10 @@ import logo from "../assets/download.png";
 
 export default function Footer() {
   const [modal, setModal] = useState(false);
+  // const [input, setInput] = useState(" ");
+  // const handleChange = (e) => {
+  //   setInput(e.target.value);
+  // };
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -75,8 +79,20 @@ export default function Footer() {
           </h3>
           <h2>Feel Free To Reach Out To Us</h2>
           <div className="newsletter">
-            <input type="text" placeholder="Your Email" />
-            <input type="text" placeholder="Your Query" />
+            <input
+              type="text"
+              placeholder="Your Email"
+              // value={input}
+              // name="input"
+              // onChange={handleChange}
+            />
+            <input
+              type="text"
+              placeholder="Your Query"
+              // value={input}
+              // name="input"
+              // onChange={handleChange}
+            />
             {/* <Button text="Send" /> */}
             {modal && (
               <div className="modal">
