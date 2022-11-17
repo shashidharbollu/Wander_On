@@ -36,44 +36,42 @@ export default function search() {
         />
       </div>
       <div className="destinations">
-        {"" ? (
-          <h4>processing...</h4>
-        ) : !filterdData ? (
-          alert("Not matched")
-        ) : (
-          posts
-            .filter((value) => {
-              if (search === "") {
-              } else if (
-                value.meta.title.toLowerCase().includes(search.toLowerCase())
-              ) {
-                return value.meta.title;
-              }
-            })
-            .map((elem) => {
-              const { title, id, date, featuredImage, meta, tags } = elem;
-              return (
-                <div key={id} className="destination">
-                  <img src={title.categories} alt="" />
-                  <img src={featuredImage.link} alt="" />
-                  <img src={title.categories} alt="" />
-                  <div className="destination2">
-                    {" "}
-                    {meta.title} <p>{title.categories}</p>
+        {""
+          ? ""
+          : !filterdData
+          ? alert("Not matched")
+          : posts
+              .filter((value) => {
+                if (search === "") {
+                } else if (
+                  value.meta.title.toLowerCase().includes(search.toLowerCase())
+                ) {
+                  return value.meta.title;
+                }
+              })
+              .map((elem) => {
+                const { title, id, date, featuredImage, meta, tags } = elem;
+                return (
+                  <div key={id} className="destination">
+                    <img src={title.categories} alt="" />
+                    <img src={featuredImage.link} alt="" />
+                    <img src={title.categories} alt="" />
+                    <div className="destination2">
+                      {" "}
+                      {meta.title} <p>{title.categories}</p>
+                    </div>
+                    <div>{meta.description}</div>
+                    <div>{tags.name}</div>
+                    <div className="info"></div>
+                    <div className="distance">
+                      <span>{featuredImage.caption}</span>
+                    </div>
+                    <div className="date">
+                      <b> {date}</b>
+                    </div>
                   </div>
-                  <div>{meta.description}</div>
-                  <div>{tags.name}</div>
-                  <div className="info"></div>
-                  <div className="distance">
-                    <span>{featuredImage.caption}</span>
-                  </div>
-                  <div className="date">
-                    <b> {date}</b>
-                  </div>
-                </div>
-              );
-            })
-        )}
+                );
+              })}
       </div>
     </Wrapper>
   );
