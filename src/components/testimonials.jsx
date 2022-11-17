@@ -131,7 +131,7 @@ const Section = styled.section`
     gap: 1rem;
     justify-content: center;
     align-items: center;
-    width: 1500px;
+    width: 1400px;
     height: 3rem;
     cursor: pointer;
     fa-lg (33% increase)
