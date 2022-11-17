@@ -6,6 +6,9 @@ import styled from "styled-components";
 import BoraBora from "../assets/borabora.jpg";
 import BoraBora2 from "../assets/borabora2.jpg";
 import Maldives from "../assets/maldives.jpg";
+// import Paris from "../assets/paris.png";
+import Background from "../assets/background.jpg";
+// import Japan from "../assets/japan.png";
 
 export default function Carousal() {
   return (
@@ -24,6 +27,15 @@ export default function Carousal() {
         </div>
         <div>
           <img src={Maldives} alt="/" />
+        </div>
+        {/* <div>
+          <img src={Paris} alt="/" />
+        </div> */}
+        {/* <div>
+          <img src={Japan} alt="/" />
+        </div> */}
+        <div>
+          <img src={Background} alt="/" />
         </div>
       </Carousel>
     </div>

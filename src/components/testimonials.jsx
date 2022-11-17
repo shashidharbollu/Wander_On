@@ -128,6 +128,7 @@ const Section = styled.section`
   }
   .social {
     display: flex;
+    
     gap: 1rem;
     justify-content: center;
     align-items: center;
