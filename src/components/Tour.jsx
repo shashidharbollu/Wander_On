@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 export default function Tour() {
-  const [users, setUsers] = useState([]);
+  const [data, setData] = useState([]);
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
@@ -14,18 +14,18 @@ export default function Tour() {
     document.body.classList.remove("active-modal");
   }
 
-  const getUsers = async () => {
+  const getData = async () => {
     const response = await fetch("https://api.npoint.io/f89acb9ee900ca95b8dc");
-    setUsers(await response.json());
+    setData(await response.json());
   };
   useEffect(() => {
-    getUsers();
+    getData();
   });
   (id) => {
-    const newarr = users.filter((result) => {
+    const newarr = data.filter((result) => {
       return result.id === id;
     });
-    setUsers(newarr);
+    setData(newarr);
   };
   return (
     <Section id="explore">
@@ -33,7 +33,7 @@ export default function Tour() {
         <h2 className="heading1">---Recommended places---</h2>
       </div>
       <div className="destinations">
-        {users
+        {data
           .filter(
             (element) =>
               element.featuredImage.id > 12000 &&

@@ -57,7 +57,6 @@ export default function search() {
                     <img src={featuredImage.link} alt="" />
                     <img src={title.categories} alt="" />
                     <div className="destination2">
-                      {" "}
                       {meta.title} <p>{title.categories}</p>
                     </div>
                     <div>{meta.description}</div>
@@ -185,7 +184,6 @@ const Wrapper = styled.section`
     }
     .destinations {
       grid-template-columns: 1fr;
-      padding: 0;
     }
   }
 `;
