@@ -36,8 +36,8 @@ export default function Backpacking() {
         {data
           .filter(
             (element) =>
-              element.featuredImage.id > 15000 &&
-              element.featuredImage.id < 25000
+              element.featuredImage.id > 40000 &&
+              element.featuredImage.id < 46000
           )
           .map((result1) => {
             const { title, id, date, featuredImage, meta, tags } = result1;
@@ -167,7 +167,7 @@ const Section = styled.section`
   }
   .destinations {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 3rem;
     padding: 0 3rem;
     .destination {

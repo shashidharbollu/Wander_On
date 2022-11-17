@@ -35,7 +35,7 @@ export default function Blog() {
       </div>
       <div className="destinations">
         {data
-          .filter((element) => element.featuredImage.id < 12000)
+          .filter((element) => element.featuredImage.id < 15000)
           .map((result1) => {
             const { title, id, date, featuredImage, meta, tags } = result1;
             return (
